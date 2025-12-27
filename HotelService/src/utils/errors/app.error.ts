@@ -13,3 +13,15 @@ export class InternalServerError implements AppError {
     this.name = "InternalServerError";
   }
 }
+
+export class QueryError implements AppError {
+  statusCode: number;
+  message: string;
+  name: string;
+
+  constructor(message) {
+    this.statusCode = 501;
+    this.message = message;
+    this.name = "QueryError";
+  }
+}
