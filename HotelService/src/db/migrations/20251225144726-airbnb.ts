@@ -5,7 +5,7 @@ import {QueryInterface, Sequelize} from "sequelize";
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface: QueryInterface, Sequelize: Sequelize) {
-    queryInterface.sequelize.query(`
+    await queryInterface.sequelize.query(`
   CREATE TABLE IF NOT EXISTS hotels(
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
@@ -17,6 +17,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    queryInterface.sequelize.query(`DROP TABLE IF EXISTS hotels;`);
+    await queryInterface.sequelize.query(`DROP TABLE IF EXISTS hotels;`);
   }
 };

@@ -8,8 +8,18 @@ export class HotelService {
     this.hotelRepository = new HotelRepository();
   }
 
-  async createHotel(hotel) {
+  async createHotel(hotel: createHotelDTO) {
     const createdHotel = await this.hotelRepository.createHotel(hotel);
     return createdHotel;
+  }
+
+  async getAllHotel() {
+    const allHotels = await this.hotelRepository.getAllHotels();
+    return allHotels;
+  }
+
+  async deleteHotel(hotelId: number): Promise<boolean> {
+    const deletedHotel = await this.hotelRepository.deleteHotel(hotelId);
+    return deletedHotel != undefined;
   }
 }

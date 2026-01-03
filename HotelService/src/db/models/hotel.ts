@@ -8,6 +8,7 @@ class Hotel extends Model<InferAttributes<Hotel>, InferCreationAttributes<Hotel>
   declare location: String;
   declare createdAt: CreationOptional<Date>;
   declare updatedAt: CreationOptional<Date>;
+  declare deletedAt: CreationOptional<Date | null>;
   declare rating_count?: number;
   declare rating?: number;
 }
@@ -49,7 +50,11 @@ Hotel.init(
       type: "DATE",
       defaultValue: new Date()
     },
-
+    deletedAt: {
+      type: "DATE",
+      defaultValue: null,
+      allowNull: true
+    },
     rating: {
       type: DataTypes.FLOAT,
       defaultValue: null
@@ -62,7 +67,8 @@ Hotel.init(
   {
     sequelize,
     tableName: "hotels",
-    underscored: true
+    underscored: true,
+    timestamps: true
   }
 );
 

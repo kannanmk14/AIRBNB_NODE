@@ -1,0 +1,4 @@
+{
+    "queryFailedFetchingAllHotels": "Query failed during fetching all hotels",
+    "hotelNotFound": "Hotel not found"
+}

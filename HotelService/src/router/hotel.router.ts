@@ -5,4 +5,6 @@ import {hotelSchema} from "../validators/hotel.validator";
 const hotelRouter = express.Router();
 const hotelController = new HotelController();
 hotelRouter.post("/create", schemaValidator(hotelSchema), hotelController.createHotelHandler);
+hotelRouter.get("/", hotelController.getAllHotelHandler);
+hotelRouter.delete("/:id", hotelController.deleteHotelHandler);
 export default hotelRouter;
